@@ -3,6 +3,16 @@ body {
   color: #000000;
 }
 
+.success-message{
+  display: none;
+}
+
+.page-header {
+  padding-bottom: 9px;
+   margin: 0px 0 0px !important;
+  border-bottom: 1px solid #eee;
+}
+
 .navbar-inverse {
   background-color: #000000;
 }
@@ -78,17 +88,17 @@ body {
 
 #checkout-btn {
   font-size: 20pt;
-  margin-top: 50px;
+ /* margin-top: 50px;*/
   margin-bottom: 40px;
 }
 
-#submit-custom-pizza {
+#submit-custom-pizza  {
   margin-bottom: 35px;
 }
 
 /*<--------------------Display: None---------------->*/
 
-#address, #pizza-details-dropdown, #pizza-details, #default-pizza-dropdown, #default-pizza-details, #sides-dropdown, #sides-details {
+#address, #pizza-details-dropdown, #default-pizza-dropdown, #default-pizza-details, #sides-dropdown, #sides-details {
   display: none;
 }
 

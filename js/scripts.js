@@ -25,11 +25,11 @@ Order.prototype.pizzaCost = function () {
     this.pizzaPrice += 1000;
   }
   if (this.crust === "crust") {
-    this.pizzaPrice += 1;
+    this.pizzaPrice += 0;
   } else if (this.crust === "light crust") {
-    this.pizzaPrice += 0.5;
+    this.pizzaPrice += 0;
   } else if (this.crust === "extra crust") {
-    this.pizzaPrice += 1.5;
+    this.pizzaPrice += 0;
   }
   this.pizzaPrice += this.sauce;
   this.pizzaPrice += this.toppings1;
@@ -47,12 +47,14 @@ Order.prototype.finalCost = function () {
   }
   return cartTotalPrice;
 }
-function Address (streetAddress, city, estate, phone) {
+function Address (firstname, lastname, streetAddress, city, estate, phone) {
+  this.firstname = firstname;
+  this.lastname = lastname;
   this.streetAddress = streetAddress;
   this.city = city;
   this.estate = estate;
   this.phone = phone;
-  this.deliveryAddress = (streetAddress + "  " + city + ", " + estate + "  " + phone);
+  this.deliveryAddress = (firstname + " "+ lastname + " " + streetAddress + "  " + city + ", " + estate + "  " + phone);
 }
 
 
@@ -64,21 +66,46 @@ $(document).ready(function(event) {
     $("#landing-content").hide();
     $("#delivery-option").text("PICKUP BY CUSTOMER");
   });
+
+  $("#back-button").click(function() {
+    $("#order-content").hide();
+    $("#landing-content").show();
+    $("#delivery-option").text("PICKUP BY CUSTOMER");
+  });
+
   $("#delivery-btn").click(function() {
     $("#address").show();
     $("#pickup-btn,#delivery-btn,#landing-tagline").hide();
   });
   $("form#address-form").submit(function(event) {
     event.preventDefault();
+    var firstname = $("input#first-name").val();
+    var lastname = $("input#last-name").val();
     var streetAddress = $("input#street-add").val();
     var city = $("input#city-add").val();
     var estate = $("select#estate-select").val();
     var phone = $("input#zip-add").val();
-    var newAddress = new Address(streetAddress, city, estate, phone)
+    var newAddress = new Address(firstname, lastname, streetAddress, city, estate, phone)
     $("#order-content").show();
     $("#landing-content").hide();
     $("#delivery-option").text("DELIVER TO:" + newAddress.deliveryAddress);
   });
+
+
+  $("form#checkout-form").submit(function(event) {
+    event.preventDefault();
+    var firstname = $("input#first-name").val();
+    var lastname = $("input#last-name").val();
+   
+    var phone = $("input#zip-add").val();
+    var newAddress = new Address(firstname, lastname, streetAddress, city, estate, phone)
+    $("#order-content").show();
+    $("#landing-content").hide();
+    $("#delivery-option").text("DELIVER TO:" + newAddress.deliveryAddress);
+  });
+  
+
+
   $("form#custom-pizza").submit(function(event) {
     event.preventDefault();
     var customSize = $("select#size").val();
@@ -87,17 +114,26 @@ $(document).ready(function(event) {
     var toppings1 = $("select#toppings1").val();
     var toppings2 = $("select#toppings2").val();
     var toppings3 = $("select#toppings3").val();
-    var pizzaDetails = (customSize + " - " + sauce + ", " + crust + ", " + toppings1 + ", " + toppings2 + ", " + toppings3);
+    var pizzaDetails = ("<hr>" + customSize + "<br>  <b>Sauce : </b>" + sauce + ",<br> <b>Crust : </b>" + crust + ", <br><b>Toppings : </b>" + toppings1 + ", " + toppings2 + ", " + toppings3);
     var newPizzaOrder = new Order(customSize, crust);
     newPizzaOrder.pizzaCost();
     totalPriceArray.push(newPizzaOrder.pizzaPrice);
     $("#pizza-details-dropdown").show();
     $("#final-cost").text(newPizzaOrder.finalCost());
-    $("#pizza-details").append("<ul><li>" + pizzaDetails + "</li></ul>");
+    $("#pizza-details").append("<ul><li>" + pizzaDetails + "<br><b>Price:  Ksh" + newPizzaOrder.pizzaPrice + "<b></li></ul>");
+    $("#pizza-details1").append("<ul><li>" + pizzaDetails + "<br><b>Price:  Ksh" + newPizzaOrder.pizzaPrice + "<b></li></ul>");
+    $("#final-cost1").text(newPizzaOrder.finalCost());
+
     $("#size, #sauce, #crust, #toppings1, #toppings2, #toppings3").val("");
   });
   $("#pizza-details-dropdown").click(function() {
     $("#pizza-details").toggle();
+  });
+
+
+  $("#checkout-btn").click(function() {
+    $("#price-content").hide();
+    $(".success-message").show();
   });
 /////Side Orders
 
