@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<!-- Link Bootstrap, Font Awesome, CSS, jQuery and JavaScript Start -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-social.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/scripts.js"></script>
+<!-- Link Bootstrap, Font Awesome, CSS, jQuery and JavaScript End -->
+    <title>SAUCY SAUCE PIZZERIA</title>
+  </head>
+  <body>
+<!-- Navbar Start -->
+    
+<!-- Navbar End -->
+<!-- Landing Start -->
+    <div class="jumbotron" id="landing-content">
+      <h1 class="page-header">SAUCY SAUCE PIZZERIA
+      </h1>
+      <h2 id="landing-tagline">OPEN 24 HOURS</h2>
+      <p>*Delivery only available in select states</p>
+      <button type="btn" class="btn btn-primary" id="pickup-btn">Pickup</button>
+      <button type="btn" class="btn btn-danger" id="delivery-btn">Delivery</button>
+      <div class="container form-group" id="address">
+        <h3>Delivery Address</h3>
+<!-- Address Form Start -->
+        <form id="address-form">
+          <div class="row">
+            <div class="col-xs-6">
+              <label for="first-name">First Name</label><input required type="text" class="form-control address-spacing">
+            </div>
+            <div class="col-xs-6">
+              <label for="last-name">Last Name</label><input required type="text" class="form-control address-spacing">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">
+              <label for="street-address">Address</label><input required type="text" class="form-control" id="street-add">
+            </div>
+            <div class="col-xs-3">
+              <label for="city-name">City</label><input required type="text" class="form-control" id="city-add">
+            </div>
+            <div class="col-xs-3">
+              <label for="state-name">Estate</label>
+              <select required class="form-control delivery-address" id="estate-select">
+                <option></option>
+                <option>Woodly</option>
+                <option>Hardy</option>
+                <option>Bogani</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <label for="phone">Phone Number</label><input required type="text" class="form-control" id="zip-add">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="order-proceed-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+<!-- Landing End -->
+<!-- Order Content Start -->
+    <div class="jumbotron mt-0" id="order-content" style="margin-top: 0px !important; padding-top: 0px !important;">
+      <h1 class="page-header">Order Options</h1>
+      <div class="row">
+        <div class="col-xs-6">
+          <h2>Pizza</h2>
+         
+          <button type="btn" class="btn btn-primary" id="custom-pizza-btn">Custom Pizza</button>
+<!-- Custom Pizza Form Start -->
+          <form class="form-group" id="custom-pizza">
+            <div id="form-content">
+              <h3 id="form-header">Custom Pizza Form</h3>
+              <div class="row container">
+                <div class="col-xs-6"><p>Size</p></div>
+                <div class="col-xs-6" class="form-option">
+                  <select required class="form-control" id="size">
+                    <option></option>
+
+                    <option value="small-6">Small [6 slices]</option>
+                <option value="small-4">Small [4 slices]</option>
+            
+                  <option value="medium-12">Medium [12 slices]</option>
+                  <option value="medium-14">Medium [14 slices]</option>
+          
+                  <option value="large-18">Large [18 slices]</option>
+                  <option value="large-20">Large [20 slices]</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row container">
+                <div class="col-xs-6"><p>Sauce</p></div>
+                <div class="col-xs-6" class="form-option">
+                  <select required class="form-control" id="sauce">
+                    <option></option>
+                    <option value="tomato sauce">Tomato</option>
+                    <option value="alfredo sauce">Alfredo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row container">
+                <div class="col-xs-6"><p>Crust</p></div>
+                <div class="col-xs-6" class="form-option">
+                  <select required class="form-control" id="crust">
+                    <option></option>
+                    <option value="fast-food-pizza">Fast Food Pizza</option>
+                    <option value="cheese-stuffed-crust">Cheese Stuffed Crust</option>
+                    <option value="pizza-bagels">Pizza Bagels</option>
+                    <option value="flatbread">Flatbread</option>
+                    <option value="thin-crust">Thin Crust</option>
+                    <option value="sicilian-crust">Sicilian Crust</option>
+                    <option value="chicago-deep-dish">Chicago Deep Dish</option>
+                    <option value="neapolitan-crust">Neapolitan Crust</option>
+                    <option value="NY-style-pizza">NY Style Pizza</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row container">
+                <div class="col-xs-6"><p>Toppings 1 </p></div>
+                <div class="col-xs-6" class="form-option">
+                  <select required class="form-control" id="toppings1">
+                    <option></option>
+                    <option value="pepperoni">Pepperoni</option>
+                    <option value="mushrooms">Mushrooms</option>
+                    <option value="onions">Onions</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row container">
+                <div class="col-xs-6"><p>Toppings 2 </p></div>
+                <div class="col-xs-6" class="form-option">
+                  <select required class="form-control" id="toppings2">
+                    <option></option>
+                    <option value="sausage">Sausage</option>
+                    <option value="bacon">Bacon</option>
+                    <option value="extra-cheese">Extra Cheese</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row container">
+                <div class="col-xs-6"><p>Toppings 3 </p></div>
+                <div class="col-xs-6" class="form-option">
+                  <select required class="form-control" id="toppings3">
+                    <option></option>
+                    <option value="black-olives">Black Olives</option>
+                    <option value="green-peppers">Green Peppers</option>
+                    <option value="pineapple">Pineapple</option>
+                    <option value="spinach">Spinach</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-danger" id="submit-custom-pizza">Place Order</button>
+          </form>
+<!-- Custom Pizza Form End -->
+        </div>
+        
+<!-- Cart Start -->
+        <div class="col-xs-4" id="price-content">
+          <h1 class="page-header">Cart</h1>
+          <h2>Price: Ksh <span id="final-cost"></span></h2>
+          <div id="order-details">
+            <p><a id="pizza-details-dropdown">Custom Pizza</a></p>
+            <ul id="pizza-details"></ul>
+            <p><a id="default-pizza-dropdown">Pizza</a></p>
+            <ul id="default-pizza-details"></ul>
+            <p><a id="sides-dropdown">Sides</a></p>
+            <ul id="sides-details"></ul>
+          </div>
+          <button type="btn" class="btn btn-danger" id="checkout-btn">Checkout</button>
+          <h3><span id="delivery-option"></span></h3>
+        </div>
+<!-- Cart End -->
+      </div>
+    </div>
+<!-- Order Content End -->
+<!-- Footer Start -->
+    
+<!-- Footer End -->
+  </body>
+</html>
